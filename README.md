@@ -1,0 +1,1 @@
+AngularJS based prototype for fast rental searching
