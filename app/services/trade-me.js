@@ -16,7 +16,8 @@ angular.module('rentMeServices', ['ngResource'])
 					region:undefined,
 					oauth_consumer_key: trademe.credentials.oauth_consumer_key,
 					oauth_signature_method: 'PLAINTEXT',
-					oauth_signature: trademe.credentials.oauth_signature
+					oauth_signature: trademe.credentials.oauth_signature,
+					photo_size: 'Large'
 				}
 			}, 
 			isArray:false
