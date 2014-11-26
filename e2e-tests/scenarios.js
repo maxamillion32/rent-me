@@ -28,7 +28,7 @@ describe('rentMe App', function() {
   });
 
 
-  describe('view2', function() {
+  describe('propertiesView', function() {
 
     beforeEach(function() {
       browser.get('index.html#/look-in/Wellington/15');

@@ -7,15 +7,15 @@ var trademe = {
 	}
 }
 
-describe('rentMeApp.view2 module', function() {
+describe('rentMeApp.propertiesView module', function() {
 
   	var $httpBackend;
- 	beforeEach(module('rentMeApp.view2'));
+ 	beforeEach(module('rentMeApp.propertiesView'));
 	beforeEach(inject(function(_$httpBackend_){
 		$httpBackend = _$httpBackend_;
 	}));
 
-	describe('view2 controller', function(){
+	describe('PropertiesView controller', function(){
 
 		it('should retrieve properties for a region', inject(function($controller) {
 		  
@@ -29,7 +29,7 @@ describe('rentMeApp.view2 module', function() {
 					regionId: 100
 				}
 
-		    var view2Ctrl = $controller('View2Ctrl', {$scope:scope, $routeParams:routeParams});
+		    var view2Ctrl = $controller('PropertiesViewController', {$scope:scope, $routeParams:routeParams});
 		  
 		    $httpBackend.flush();
 

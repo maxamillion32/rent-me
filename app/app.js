@@ -4,7 +4,7 @@
 angular.module('rentMeApp', [
   'ngRoute',
   'rentMeApp.localityView',
-  'rentMeApp.view2'
+  'rentMeApp.propertiesView'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/where'});

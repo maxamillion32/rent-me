@@ -4,12 +4,12 @@ describe('rentMeApp.localityView module', function() {
 
 	var $httpBackend;
 
-	beforeEach(module('rentMeApp.view1'));
+	beforeEach(module('rentMeApp.localityView'));
 	beforeEach(inject(function(_$httpBackend_){
 		$httpBackend = _$httpBackend_;
 	}));
 
-	describe('localityView controller', function(){
+	describe('LocalityView controller', function(){
 
         it('should retrieve and display some localities', inject(function($controller) {
           
@@ -17,7 +17,7 @@ describe('rentMeApp.localityView module', function() {
     		respond([{'LocalityId':14,'Name':'Waikato','Districts':[]}]);
 
         	var scope = {},
-            view1Ctrl = $controller('View1Ctrl', {$scope:scope});
+            view1Ctrl = $controller('LocalityViewController', {$scope:scope});
             
             expect(scope.localities.length).toBe(0);
 

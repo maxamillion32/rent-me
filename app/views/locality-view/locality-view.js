@@ -4,7 +4,7 @@ angular.module('rentMeApp.localityView', ['ngRoute', 'tradeMeServices'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/where', {
-    templateUrl: 'locality-view/locality-view.html',
+    templateUrl: 'views/locality-view/locality-view.html',
     controller: 'LocalityViewController'
   });
 }])
