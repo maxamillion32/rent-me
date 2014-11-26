@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('rentMeApp.view2', ['ngRoute', 'rentMeServices'])
+angular.module('rentMeApp.view2', ['ngRoute', 'tradeMeServices'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/look-in/:regionName/:regionId', {

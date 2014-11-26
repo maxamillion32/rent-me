@@ -1,4 +1,4 @@
-angular.module('rentMeServices', ['ngResource'])
+angular.module('tradeMeServices', ['ngResource'])
 
 .factory('Localities', ['$resource',
 	function($resource){

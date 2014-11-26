@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('rentMeApp.view1', ['ngRoute', 'rentMeServices'])
+angular.module('rentMeApp.view1', ['ngRoute', 'tradeMeServices'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {
