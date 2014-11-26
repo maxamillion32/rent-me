@@ -11,4 +11,7 @@ angular.module('rentMeApp.view1', ['ngRoute', 'rentMeServices'])
 
 .controller('View1Ctrl', ['$scope', 'Localities', function($scope, Localities) {
 	$scope.localities = Localities.query();
+	$scope.localityChange = function() {
+		console.log('new location:' + $scope.locality);
+	}
 }]);

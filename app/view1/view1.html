@@ -1,1 +1,5 @@
-<p>This is the partial for view 1.</p>
+<h1>Where do you want to rent?</h1>
+
+<ul>
+	<li ng-repeat="locality in localities"><a href="/look-in/{{locality.Name}}">{{locality.Name}}</a></li>
+</ul>
