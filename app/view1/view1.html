@@ -3,5 +3,5 @@
 <p ng-if="!localities.length">Loading, please wait...</p>
 
 <ul id="localities" ng-if="localities.length">
-	<li ng-repeat="locality in localities"><a href="/look-in/{{locality.Name}}">{{locality.Name}}</a></li>
+	<li ng-repeat="locality in localities"><a href="#/look-in/{{locality.Name}}/{{locality.LocalityId}}">{{locality.Name}}</a></li>
 </ul>

@@ -1,5 +1,23 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<p ng-if="!properties.PageSize">Loading, please wait...</p>
+
+<section ng-if="properties.PageSize">
+
+	<ul>
+		<li>Region selected with Id {{regionId}}</li>
+		<li>Showing {{properties.PageSize}} out of {{properties.TotalCount}}</li>
+	</ul>
+
+	<ul>
+		<li ng-repeat="property in properties.List">
+			<ul>
+				<li><img ng-src="{{property.PictureHref}}" /></li>
+				<li>{{property.Suburb}}</li>
+				<li>{{property.Bedrooms}} bedrooms</li>
+				<li>{{property.Bathrooms}} bathrooms</li>
+				<li>{{property.RentPerWeek}} per week</li>
+				<li>Available from {{property.AvailableFrom}}</li>
+				<li>Contact {{property.Agents[0].FullName}} on {{property.Agents[0].MobilePhoneNumber}}</li>
+		</li>
+	</ul>
+
+</section>
