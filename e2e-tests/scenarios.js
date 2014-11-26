@@ -34,7 +34,7 @@ describe('rentMe App', function() {
       browser.get('index.html#/look-in/Wellington/15');
     });
 
-    it('should render view2 when user navigates to /view2', function() {
+    it('should display a list of properties when user navigates to page', function() {
       expect(element(by.repeater('property in properties.List').row(0)).isPresent()).toBe(true);
     });
 
