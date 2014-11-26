@@ -3,9 +3,9 @@
 // Declare app level module which depends on views, and components
 angular.module('rentMeApp', [
   'ngRoute',
-  'rentMeApp.view1',
+  'rentMeApp.localityView',
   'rentMeApp.view2'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.otherwise({redirectTo: '/where'});
 }]);
