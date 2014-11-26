@@ -10,17 +10,19 @@ describe('rentMe App', function() {
     expect(browser.getLocationAbsUrl()).toMatch("/view1");
   });
 
-
   describe('view1', function() {
 
     beforeEach(function() {
       browser.get('index.html#/view1');
     });
 
-
     it('should render view1 when user navigates to /view1', function() {
-      expect(element.all(by.css('[ng-view] p')).first().getText()).
-        toMatch(/partial for view 1/);
+      expect(element(by.css('h1')).isPresent()).toBe(true);
+    });
+
+    it('should render a list of localities', function() {
+      expect(element(by.css('ul')).isPresent()).toBe(true);
+      expect(element(by.css('ul li')).isPresent()).toBe(true);
     });
 
   });
