@@ -1,15 +1,19 @@
-<div class="FullPageBackground" />
+<div class="Localities-bgImage" />
 
-<section class="container-fluid main-content">
+<section class="container-fluid u-header-push">
 
-	<h1 class="h3 text-center u-text-shadow u-vertical-space" >Where do you want to rent?</h1>
+	<hgroup class="text-center u-text-shadow u-vertical-space">
+		<h1 class="h2">Find NZ rentals from TradeMe, fast.</h1>
+	</hgroup>
 
 	<p ng-if="!localities.length">Loading, please wait...</p>
 
-	<ul id="localities" ng-if="localities.length" class="text-center list-unstyled">
-		<li ng-repeat="locality in localities">
-			<a href="#/look-in/{{locality.Name}}/{{locality.LocalityId}}" class="u-text-shadow">{{locality.Name}}</a>
-		</li>
-	</ul>
+	<div class="Localities-list container-fluid">
+		<ul id="localities" ng-if="localities.length" class="text-center list-unstyled u-list-split">
+			<li ng-repeat="locality in localities">
+				<a href="#/look-in/{{locality.Name}}/{{locality.LocalityId}}" class="u-text-shadow">{{locality.Name}}</a>
+			</li>
+		</ul>
+	</div>
 
 </section>
