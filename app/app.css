@@ -1,34 +1,33 @@
-/* app css stylesheet */
+/* normalise */
 
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+a {
+    color: black;
 }
 
-.menu:before {
-  content: "[";
+/* specific styles */
+
+.FullPageBackground {
+    background: url('images/nz-dream-home.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
-.menu:after {
-  content: "]";
+.main-content {
+    padding-top: 52px;
 }
 
-.menu > li {
-  display: inline;
+/* Utils */
+
+.u-vertical-space {
+    padding-bottom: 1em;
 }
 
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
-}
-
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
-}
-
-.ng-invalid {
-  color: #cc0000;
+.u-text-shadow {
+    text-shadow: 1px 1px 1px white;
 }

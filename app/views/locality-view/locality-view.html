@@ -1,7 +1,15 @@
-<h1>Where do you want to rent?</h1>
+<div class="FullPageBackground" />
 
-<p ng-if="!localities.length">Loading, please wait...</p>
+<section class="container-fluid main-content">
 
-<ul id="localities" ng-if="localities.length">
-	<li ng-repeat="locality in localities"><a href="#/look-in/{{locality.Name}}/{{locality.LocalityId}}">{{locality.Name}}</a></li>
-</ul>
+	<h1 class="h3 text-center u-text-shadow u-vertical-space" >Where do you want to rent?</h1>
+
+	<p ng-if="!localities.length">Loading, please wait...</p>
+
+	<ul id="localities" ng-if="localities.length" class="text-center list-unstyled">
+		<li ng-repeat="locality in localities">
+			<a href="#/look-in/{{locality.Name}}/{{locality.LocalityId}}" class="u-text-shadow">{{locality.Name}}</a>
+		</li>
+	</ul>
+
+</section>
