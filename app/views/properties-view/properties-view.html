@@ -13,6 +13,9 @@
 		<h1>Filters</h1>
 		<form ng-submit="filterProperties()">
 
+			<label for="suburb">Suburb</label>
+			<input type="text" name="suburb" ng-model="suburb"><br />
+
 			<label for="min-price">Min price per week $</label>
 			<input type="number" name="min-price" ng-model="minPrice" min="0"><br />
 
@@ -27,12 +30,11 @@
 
 	<h1>Results</h1>
 	<ul>
-		<li ng-repeat="property in properties.List | meetCriteria:minPrice:maxPrice:bedrooms">
+		<li ng-repeat="property in properties.List | meetCriteria:minPrice:maxPrice:bedrooms:suburb">
 			<ul>
 				<li><a href="http://www.tmsandbox.co.nz/property/residential-property-to-rent/auction-{{property.ListingId}}.htm"><img ng-src="{{property.PictureHref}}" /></a></li>
 				<li>{{property.Suburb}}</li>
 				<li>{{property.Bedrooms}} bedrooms</li>
-				<li>{{property.Bathrooms}} bathrooms</li>
 				<li>{{property.RentPerWeek}} per week</li>
 				<li>Available from {{property.AvailableFrom}}</li>
 		</li>
