@@ -1,4 +1,7 @@
-/* adjust bootstrap base styles */
+/* 
+    adjust bootstrap base styles 
+    note - these should be adjusted in SASS and Bootstrap CSS rebuilt
+*/
 
 body {
     font-size: 14px;
@@ -14,6 +17,10 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .navbar-header{
 
 .navbar-default .navbar-brand {
     color: #21314B;
+}
+
+.navbar-header {
+    float: left;
 }
 
 /* view specific styles */
@@ -39,6 +46,14 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .navbar-header{
 }
 
 /* Utils */
+
+.theme-light * {
+    color: black;
+}
+
+.u-fr {
+    float: right;
+}
 
 .u-vertical-space {
     margin: 3em 0 2em 0;
