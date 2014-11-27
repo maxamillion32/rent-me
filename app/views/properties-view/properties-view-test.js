@@ -50,13 +50,25 @@ describe('rentMeApp.propertiesView module', function() {
 
 	    it('filters properties based on min and max price', inject(function(meetCriteriaFilter) {
 	    	var properties = [
-	    		{ Title: 'First property', RentPerWeek: 200 },
-	    		{ Title: 'Second property', RentPerWeek: 400 },
-	    		{ Title: 'Third property', RentPerWeek: 800 },
+	    		{ Title: 'First property', RentPerWeek: 200, Bedrooms: 1 },
+	    		{ Title: 'Second property', RentPerWeek: 400, Bedrooms: 1 },
+	    		{ Title: 'Third property', RentPerWeek: 800, Bedrooms: 1 }
 	    	];
-	    	var filteredResults = meetCriteriaFilter(properties, 250, 600);
+	    	var filteredResults = meetCriteriaFilter(properties, 250, 600, 0);
 	    	expect(filteredResults.length).toBe(1);
 	    	expect(filteredResults[0].Title).toBe('Second property');
+	    }));
+
+	    it('filters properties based on the number of bedrooms', inject(function(meetCriteriaFilter) {
+	    	var properties = [
+	    		{ Title: 'First property', RentPerWeek: 100, Bedrooms: 2 },
+	    		{ Title: 'Second property',RentPerWeek: 100, Bedrooms: 3 },
+	    		{ Title: 'Third property', RentPerWeek: 100, Bedrooms: 4 }
+	    	];
+	    	var filteredResults = meetCriteriaFilter(properties, 99, 101, 3);
+	    	expect(filteredResults.length).toBe(2);
+	    	expect(filteredResults[0].Title).toBe('Second property');
+	    	expect(filteredResults[1].Title).toBe('Third property');
 	    }));
 
 	});
