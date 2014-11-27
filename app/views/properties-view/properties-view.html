@@ -9,6 +9,18 @@
 	<h1 ng-if="properties.TotalCount > 0">Showing {{properties.PageSize}} out of {{properties.TotalCount}}</h1>
 	<h1 ng-if="properties.TotalCount == 0">Sorry, no properties found.</h1>
 
+	<section>
+		<h1>Filters</h1>
+		<form ng-submit="filterProperties()">
+			<label for="min-price">Min price per week $</label>
+			<input type="number" name="min-price" ng-model="minPrice" min="0"><br />
+			<label for="max-price">Max price per week $</label>
+			<input type="number" name="max-price" ng-model="maxPrice"><br />
+			<input type="submit" value="filter" />
+		</form>
+	</section>
+
+	<h1>Results</h1>
 	<ul>
 		<li ng-repeat="property in properties.List">
 			<ul>

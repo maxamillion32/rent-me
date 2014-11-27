@@ -10,8 +10,35 @@ angular.module('rentMeApp.propertiesView', ['ngRoute', 'tradeMeServices'])
 }])
 
 .controller('PropertiesViewController', ['$scope', '$routeParams', 'PropertiesByRegion', function($scope, $routeParams, PropertiesByRegion) {
-	$scope.properties = PropertiesByRegion.query({region: $routeParams.regionId});	
+	
+	var maxPrice = 0, 
+		minPrice = 0;
 
-	console.log($scope.properties);
+	var properties = PropertiesByRegion.query({region: $routeParams.regionId});
+	$scope.properties = properties;	
+	$scope.filterProperties = function() {
+
+	}
+	
+	properties.$promise.then(function(result) {
+		setPriceRange(result.List);
+	})
+
+	function setPriceRange(propertyList) {
+
+		//hack: force a high min price so that Math.min works, otherwise min will always be zero
+		//or you will need two loops, firstly to find the max price, then set the min price to the max at the start
+		minPrice = 10000000; 
+
+		for (var i=0; i < propertyList.length; i++) {
+			var rentPerWeek = propertyList[i].RentPerWeek;
+			maxPrice = Math.max(rentPerWeek, maxPrice);
+			minPrice = Math.min(rentPerWeek, minPrice);
+		}
+		$scope.maxPrice = maxPrice;
+		$scope.minPrice = minPrice;
+		$scope.priceRange = 500;
+	}
+
 	$scope.regionId = $routeParams.regionId;
 }]);
