@@ -1,15 +1,13 @@
-<p ng-if="!properties.PageSize">Loading, please wait...</p>
+<p ng-if="!properties.Page">Loading, please wait...</p>
 
 <nav>
 	<a href="#/">Change location</a>
 </nav>
 
-<section ng-if="properties.PageSize">
+<section ng-if="properties.Page">
 
-	<ul>
-		<li>Region selected with Id {{regionId}}</li>
-		<li>Showing {{properties.PageSize}} out of {{properties.TotalCount}}</li>
-	</ul>
+	<h1 ng-if="properties.TotalCount > 0">Showing {{properties.PageSize}} out of {{properties.TotalCount}}</h1>
+	<h1 ng-if="properties.TotalCount == 0">Sorry, no properties found.</h1>
 
 	<ul>
 		<li ng-repeat="property in properties.List">
