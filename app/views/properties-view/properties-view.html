@@ -6,11 +6,10 @@
 
 <section ng-if="properties.Page">
 
-	<h1 ng-if="properties.TotalCount > 0">Showing {{properties.PageSize}} out of {{properties.TotalCount}}</h1>
-	<h1 ng-if="properties.TotalCount == 0">Sorry, no properties found.</h1>
-
 	<section>
-		<h1>Filters</h1>
+		<h1>Filter</h1>
+		<p ng-if="properties.TotalCount > 0">Showing {{filteredProperties.length}} out of {{properties.PageSize}}</p>
+
 		<form ng-submit="filterProperties()">
 
 			<label for="suburb">Suburb</label>
@@ -26,18 +25,27 @@
 			<input type="number" name="bedrooms" ng-model="bedrooms"><br />
 
 		</form>
+
 	</section>
 
-	<h1>Results</h1>
-	<ul>
-		<li ng-repeat="property in properties.List | meetCriteria:minPrice:maxPrice:bedrooms:suburb">
-			<ul>
-				<li><a href="http://www.tmsandbox.co.nz/property/residential-property-to-rent/auction-{{property.ListingId}}.htm"><img ng-src="{{property.PictureHref}}" /></a></li>
-				<li>{{property.Suburb}}</li>
-				<li>{{property.Bedrooms}} bedrooms</li>
-				<li>{{property.RentPerWeek}} per week</li>
-				<li>Available from {{property.AvailableFrom}}</li>
-		</li>
-	</ul>
+	<section>
+
+		<h1>Results</h1>
+		<ul>
+			<!-- create filtered list variable. See: http://stackoverflow.com/a/18593018 -->
+			<li ng-repeat="property in filteredProperties = (properties.List | meetCriteria:minPrice:maxPrice:bedrooms:suburb)">
+				<ul>
+					<li><a href="http://www.tmsandbox.co.nz/property/residential-property-to-rent/auction-{{property.ListingId}}.htm"><img ng-src="{{property.PictureHref}}" /></a></li>
+					<li>{{property.Suburb}}</li>
+					<li>{{property.Bedrooms}} bedrooms</li>
+					<li>{{property.RentPerWeek}} per week</li>
+					<li>Available from {{property.AvailableFrom}}</li>
+				</ul>
+			</li>
+		</ul>
+
+		<p ng-if="filteredProperties.length == 0">No properties found</p>		
+
+	</section>
 
 </section>
