@@ -16,9 +16,6 @@ angular.module('rentMeApp.propertiesView', ['ngRoute', 'tradeMeServices'])
 
 	var properties = PropertiesByRegion.query({region: $routeParams.regionId});
 	$scope.properties = properties;	
-	$scope.filterProperties = function() {
-
-	}
 	
 	properties.$promise.then(function(result) {
 		setPriceRange(result.List);
@@ -37,8 +34,21 @@ angular.module('rentMeApp.propertiesView', ['ngRoute', 'tradeMeServices'])
 		}
 		$scope.maxPrice = maxPrice;
 		$scope.minPrice = minPrice;
-		$scope.priceRange = 500;
 	}
 
 	$scope.regionId = $routeParams.regionId;
-}]);
+}])
+
+.filter('meetCriteria', function () {
+	return function (items, minPrice) {
+		var filtered = [];
+		for (var i = 0; i < items.length; i++) {
+			var item = items[i];
+			if (item.RentPerWeek > minPrice) {
+				filtered.push(item);
+			}
+		}
+		return filtered;
+	};
+});
+

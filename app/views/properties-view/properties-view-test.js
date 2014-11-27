@@ -44,6 +44,20 @@ describe('rentMeApp.propertiesView module', function() {
 
 		}));
 
+	    it('has a filter to meet the user\'s search criteria', inject(function($filter) {
+	        expect($filter('meetCriteria')).not.toBeNull();
+	    }));
+
+	    it('filters properties based on min price', inject(function(meetCriteriaFilter) {
+	    	var properties = [
+	    		{ Title: 'First property', RentPerWeek: 200 },
+	    		{ Title: 'Second property', RentPerWeek: 400 }
+	    	];
+	    	var filteredResults = meetCriteriaFilter(properties, 250);
+	    	expect(filteredResults.length).toBe(1);
+	    	expect(filteredResults[0].Title).toBe('Second property');
+	    }));
+
 	});
 
 });

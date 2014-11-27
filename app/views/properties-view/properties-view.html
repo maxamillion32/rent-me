@@ -16,13 +16,12 @@
 			<input type="number" name="min-price" ng-model="minPrice" min="0"><br />
 			<label for="max-price">Max price per week $</label>
 			<input type="number" name="max-price" ng-model="maxPrice"><br />
-			<input type="submit" value="filter" />
 		</form>
 	</section>
 
 	<h1>Results</h1>
 	<ul>
-		<li ng-repeat="property in properties.List">
+		<li ng-repeat="property in properties.List | meetCriteria:minPrice">
 			<ul>
 				<li><a href="http://www.tmsandbox.co.nz/property/residential-property-to-rent/auction-{{property.ListingId}}.htm"><img ng-src="{{property.PictureHref}}" /></a></li>
 				<li>{{property.Suburb}}</li>
