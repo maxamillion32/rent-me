@@ -40,11 +40,12 @@ angular.module('rentMeApp.propertiesView', ['ngRoute', 'tradeMeServices'])
 }])
 
 .filter('meetCriteria', function () {
-	return function (items, minPrice) {
+	return function (items, minPrice, maxPrice) {
 		var filtered = [];
 		for (var i = 0; i < items.length; i++) {
 			var item = items[i];
-			if (item.RentPerWeek > minPrice) {
+			if (item.RentPerWeek > minPrice &&
+				item.RentPerWeek < maxPrice) {
 				filtered.push(item);
 			}
 		}
