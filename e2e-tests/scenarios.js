@@ -35,7 +35,7 @@ describe('rentMe App', function() {
     });
 
     it('should display a list of properties when user navigates to page', function() {
-      expect(element(by.repeater('property in properties.List').row(0)).isPresent()).toBe(true);
+      expect(element(by.css('ul li')).isPresent()).toBe(true);
     });
 
   });
