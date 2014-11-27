@@ -4,12 +4,16 @@ body {
     font-size: 14px;
 }
 
-body, a {
+body, .body a {
     color: white;
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .navbar-header{
     font-family: 'Bitter', cursive;
+}
+
+.navbar-default .navbar-brand {
+    color: #21314B;
 }
 
 /* view specific styles */
@@ -36,12 +40,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .navbar-header{
 
 /* Utils */
 
-.u-header-push {
-    padding-top: 52px;
-}
-
 .u-vertical-space {
-    margin: 2em 0;
+    margin: 3em 0 2em 0;
 }
 
 .u-text-shadow {
@@ -50,9 +50,9 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .navbar-header{
 
 .u-list-split {
     -moz-column-count: 2;
-    -moz-column-gap: 20px;
+    -moz-column-gap: 0px;
     -webkit-column-count: 2;
-    -webkit-column-gap: 20px;
+    -webkit-column-gap: 0px;
     column-count: 2;
-    column-gap: 20px;
+    column-gap: 0px;
 }
