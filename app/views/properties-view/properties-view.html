@@ -1,47 +1,55 @@
 <p ng-if="!properties.Page">Loading, please wait...</p>
 
-<section class="theme-light" ng-if="properties.Page">
+<section class="theme-light container" ng-if="properties.Page">
 
-	<section>
-		<h1>Filter</h1>
-		<p ng-if="properties.TotalCount > 0">Showing {{filteredProperties.length}} out of {{properties.PageSize}}</p>
+	<div class="row">
 
-		<form ng-submit="filterProperties()">
+		<section class="col-md-2">
+			<h1 class="h5">Narrow your search</h1>
+			<p ng-if="properties.TotalCount > 0">Showing {{filteredProperties.length}} out of {{properties.PageSize}}</p>
 
-			<label for="suburb">Suburb</label>
-			<input type="text" name="suburb" ng-model="suburb"><br />
 
-			<label for="min-price">Min price per week $</label>
-			<input type="number" name="min-price" ng-model="minPrice" min="0"><br />
+			<form ng-submit="filterProperties()">
 
-			<label for="max-price">Max price per week $</label>
-			<input type="number" name="max-price" ng-model="maxPrice"><br />
+				<label for="suburb">Suburb</label>
+				<input type="text" name="suburb" ng-model="suburb"><br />
 
-			<label for="bedrooms">Min bedrooms</label>
-			<input type="number" name="bedrooms" ng-model="bedrooms"><br />
+				<label for="min-price">Min price per week $</label>
+				<input type="number" name="min-price" ng-model="minPrice" min="0"><br />
 
-		</form>
+				<label for="max-price">Max price per week $</label>
+				<input type="number" name="max-price" ng-model="maxPrice"><br />
 
-	</section>
+				<label for="bedrooms">Min bedrooms</label>
+				<input type="number" name="bedrooms" ng-model="bedrooms"><br />
 
-	<section>
+			</form>
 
-		<h1>Results</h1>
-		<ul>
-			<!-- create filtered list variable. See: http://stackoverflow.com/a/18593018 -->
-			<li ng-repeat="property in filteredProperties = (properties.List | meetCriteria:minPrice:maxPrice:bedrooms:suburb)">
-				<ul>
-					<li><a href="http://www.tmsandbox.co.nz/property/residential-property-to-rent/auction-{{property.ListingId}}.htm"><img ng-src="{{property.PictureHref}}" /></a></li>
-					<li>{{property.Suburb}}</li>
-					<li>{{property.Bedrooms}} bedrooms</li>
-					<li>{{property.RentPerWeek}} per week</li>
-					<li>Available from {{property.AvailableFrom}}</li>
-				</ul>
-			</li>
-		</ul>
+		</section>
 
-		<p ng-if="filteredProperties.length == 0">No properties found</p>		
+		<section class="col-md-10">
 
-	</section>
+			<h1 class="h5">Homes found</h1>
+
+			<ul class="list-unstyled">
+				<!-- create filtered list variable. See: http://stackoverflow.com/a/18593018 -->
+				<li class="pull-left" ng-repeat="property in filteredProperties = (properties.List | meetCriteria:minPrice:maxPrice:bedrooms:suburb)">
+					<a class="property" href="http://www.tmsandbox.co.nz/property/residential-property-to-rent/auction-{{property.ListingId}}.htm">
+						
+						<div class="property-content">
+							<img ng-src="{{property.PictureHref}}" />
+						</div>
+						<p class="property-content property-details u-text-shadow">{{property.Suburb}}, {{property.Bedrooms}} bedrooms<br />
+						${{property.RentPerWeek}} pw<br />
+						Available {{property.AvailableFrom}}</p>
+					</a>
+				</li>
+			</ul>
+
+			<p ng-if="filteredProperties.length == 0">No properties found</p>		
+
+		</section>
+
+	</div>
 
 </section>

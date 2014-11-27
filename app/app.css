@@ -45,6 +45,32 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .navbar-header{
     width: 300px;
 }
 
+.property {
+    background: #333;
+    display: block;
+    height: 225px;
+    width: 300px;
+    margin: 0 10px 10px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.property .property-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+}
+
+.property .property-details {
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.8), 
+      rgba(0, 0, 0, 0)
+    );
+    color: white;
+    padding: 5px 10px 35px 10px;
+}
+
 /* Utils */
 
 .theme-light * {
