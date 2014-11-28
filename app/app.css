@@ -28,6 +28,10 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .navbar-header, label {
     margin-right: 0;
 }
 
+.input-group {
+    width: 100%;
+}
+
 /* view specific styles */
 
 .localities-background {
@@ -50,7 +54,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .navbar-header, label {
 }
 
 .properties-container {
-    padding-top: 2em;
+    padding-top: 1em;
 }
 
 .property {
@@ -125,4 +129,77 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .navbar-header, label {
     -webkit-column-gap: 0px;
     column-count: 2;
     column-gap: 0px;
+}
+
+/* Media Queries */
+/* kludge: brittle and very speific styling */
+
+/* small mobile */
+@media (max-width: 390px) {
+    .localities-find-cta {
+        font-size: 24px;
+    }
+}
+
+/* small handheld */
+@media (max-width: 490px) {
+
+    .input-price {
+        float: left;
+        margin-right: 25px;
+    }
+
+    .properties-filters {
+        padding-bottom: 20px;
+    }
+
+}
+
+/* bootstrap override - should be done in Sass */
+@media (max-width: 768px) {
+    .navbar-default {
+        padding-left: 15px;
+    }
+}
+
+/* from mobile to handheld */
+@media (min-width: 490px) and (max-width: 990px) {
+
+    .properties-results {
+        margin-top: 2em;
+    }
+
+}
+
+/* all the way to handheld */
+@media (max-width: 990px) {
+
+    .properties-filters .h5 {
+        margin-bottom: 0;
+    }
+
+}
+
+/* handheld */
+@media (max-width: 990px) and (min-width: 490px) {
+    .input-group {
+        margin-right: 15px;
+        width: 30%;
+        float: left;
+    }
+
+    input[name="suburb"] {
+        margin-top: 15px;
+    }
+
+    .input-bedrooms label {
+        margin-bottom: 20px;
+    }
+}
+
+/* desktop */
+@media (min-width: 990px) {
+    .properties-container {
+        padding-top: 2em;
+    }
 }
