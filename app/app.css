@@ -17,10 +17,15 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .navbar-header{
 
 .navbar-default .navbar-brand {
     color: #21314B;
+    padding-left: 0;
 }
 
 .navbar-header {
     float: left;
+}
+
+.navbar-text {
+    margin-right: 0;
 }
 
 /* view specific styles */
@@ -42,6 +47,10 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .navbar-header{
 
 .localities-list {
     width: 300px;
+}
+
+.properties-container {
+    padding-top: 2em;
 }
 
 .property {
@@ -71,6 +80,10 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .navbar-header{
 }
 
 /* Utils */
+
+.theme-light {
+    background: rgb(226, 237, 235);
+}
 
 .theme-light * {
     color: black;
