@@ -41,7 +41,7 @@
 			<ul class="list-unstyled">
 				<!-- create filtered list variable. See: http://stackoverflow.com/a/18593018 -->
 				<li class="pull-left" ng-repeat="property in filteredProperties = (properties.List | meetCriteria:minPrice:maxPrice:bedrooms:suburb)">
-					<a class="property" href="http://www.tmsandbox.co.nz/property/residential-property-to-rent/auction-{{property.ListingId}}.htm">
+					<a class="property" href="http://www.tmsandbox.co.nz/property/residential-property-to-rent/auction-{{property.ListingId}}.htm" target="_blank">
 						
 						<div class="property-content u-center">
 							<img ng-src="{{property.PictureHref}}" />
