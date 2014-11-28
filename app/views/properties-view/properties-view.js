@@ -18,15 +18,14 @@ angular.module('rentMeApp.propertiesView', ['ngRoute', 'tradeMeServices'])
 	$scope.properties = properties;	
 	$scope.bedrooms = 1;
 	$scope.suburb = '';
+	$scope.adjustBedrooms = function(adjustment) {
+		$scope.bedrooms += adjustment;
+	}
 	
 	properties.$promise.then(function(result) {
 		setPriceRange(result.List);
 	})
 
-/*        setTimeout(function() {
-			$("#range_01").ionRangeSlider();
-		}, 5000);*/
-        
 	function setPriceRange(propertyList) {
 
 		//hack: force a high min price so that Math.min works, otherwise min will always be zero

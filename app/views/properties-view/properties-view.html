@@ -17,7 +17,11 @@
 				<input id="price" ion-range-slider ion-range-slider-min="{{minPrice}}" ion-range-slider-max="{{maxPrice}}" />
 
 				<label for="bedrooms" class="property-filter">Min bedrooms</label>
-				<input type="number" name="bedrooms" ng-model="bedrooms" class="property-filter-input"><br />
+				<div>
+					<a class="glyphicon glyphicon-chevron-left" ng-click="adjustBedrooms(-1)" aria-hidden="true"></a>
+					<span>{{bedrooms}}</span>
+					<a class="glyphicon glyphicon-chevron-right u-clickable" ng-click="adjustBedrooms(1)" aria-hidden="true"></a>
+				</div>
 
 			</form>
 
