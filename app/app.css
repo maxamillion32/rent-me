@@ -25,8 +25,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .navbar-header{
 
 /* view specific styles */
 
-.Localities-bgImage {
-
+.localities-background {
     background: linear-gradient(
       rgba(0, 0, 0, 0.75), 
       rgba(0, 0, 0, 0)
@@ -41,7 +40,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .navbar-header{
     height: 100%;
 }
 
-.Localities-list {
+.localities-list {
     width: 300px;
 }
 

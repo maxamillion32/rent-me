@@ -1,4 +1,4 @@
-<section class="Localities-bgImage container-fluid u-vertical-align">
+<section class="localities-background container-fluid u-vertical-align">
 
 	<hgroup class="text-center u-text-shadow u-vertical-space">
 		<h1 class="h2">Find NZ rentals from<br /> TradeMe, fast.</h1>
@@ -6,7 +6,7 @@
 
 	<p ng-if="!localities.length">Loading, please wait...</p>
 
-	<div class="Localities-list container-fluid">
+	<div class="localities-list container-fluid">
 		<ul id="localities" ng-if="localities.length" class="text-center list-unstyled u-list-split">
 			<li ng-repeat="locality in localities">
 				<a href="#/look-in/{{locality.Name}}/{{locality.LocalityId}}" class="u-text-shadow">{{locality.Name}}</a>
