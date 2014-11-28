@@ -36,7 +36,7 @@
 				<li class="pull-left" ng-repeat="property in filteredProperties = (properties.List | meetCriteria:minPrice:maxPrice:bedrooms:suburb)">
 					<a class="property" href="http://www.tmsandbox.co.nz/property/residential-property-to-rent/auction-{{property.ListingId}}.htm">
 						
-						<div class="property-content">
+						<div class="property-content u-center">
 							<img ng-src="{{property.PictureHref}}" />
 						</div>
 						<p class="property-content property-details u-text-shadow">{{property.Suburb}}, {{property.Bedrooms}} bedrooms<br />
