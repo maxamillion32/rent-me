@@ -12,14 +12,20 @@ angular.module('rentMeApp.propertiesView', ['ngRoute', 'tradeMeServices'])
 .controller('PropertiesViewController', ['$scope', '$routeParams', 'PropertiesByRegion', function($scope, $routeParams, PropertiesByRegion) {
 	
 	var maxPrice = 0, 
-		minPrice = 0;
+		minPrice = 0,
+		minBeds = 0,
+		maxBeds = 0;
 
 	var properties = PropertiesByRegion.query({region: $routeParams.regionId});
 	$scope.properties = properties;	
 	$scope.bedrooms = 1;
 	$scope.suburb = '';
+	
 	$scope.adjustBedrooms = function(adjustment) {
-		$scope.bedrooms += adjustment;
+		var bedrooms = $scope.bedrooms + adjustment;
+		bedrooms = Math.min(bedrooms, maxBeds);
+		bedrooms = Math.max(bedrooms, minBeds);
+		$scope.bedrooms = bedrooms;
 	}
 	
 	properties.$promise.then(function(result) {
@@ -31,14 +37,19 @@ angular.module('rentMeApp.propertiesView', ['ngRoute', 'tradeMeServices'])
 		//hack: force a high min price so that Math.min works, otherwise min will always be zero
 		//or you will need two loops, firstly to find the max price, then set the min price to the max at the start
 		minPrice = 10000000; 
+		minBeds = 99;
 
 		for (var i=0; i < propertyList.length; i++) {
 			var rentPerWeek = propertyList[i].RentPerWeek;
+			var bedrooms = propertyList[i].Bedrooms;
 			maxPrice = Math.max(rentPerWeek, maxPrice);
 			minPrice = Math.min(rentPerWeek, minPrice);
+			maxBeds = Math.max(bedrooms, maxBeds);
+			minBeds = Math.min(bedrooms, minBeds);
 		}
 		$scope.maxPrice = maxPrice;
 		$scope.minPrice = minPrice;
+		$scope.bedrooms = minBeds;
 	}
 
 	$scope.regionId = $routeParams.regionId;
