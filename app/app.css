@@ -99,7 +99,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .navbar-header, label {
 /* Utils */
 
 .theme-light {
-    background: rgb(226, 237, 235);
+    background: rgb(203, 209, 213);
+    height: 100vh;
 }
 
 .theme-light * {

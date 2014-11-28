@@ -4,9 +4,8 @@
 		<h1 class="h2 localities-find-cta">Find NZ rentals from<br /> TradeMe, fast.</h1>
 	</hgroup>
 
-	<p ng-if="!localities.length">Loading, please wait...</p>
-
 	<div class="localities-list container-fluid">
+		<p ng-if="!localities.length" class="text-center">Loading, please wait...</p>
 		<ul id="localities" ng-if="localities.length" class="text-center list-unstyled u-list-split">
 			<li ng-repeat="locality in localities">
 				<a href="#/look-in/{{locality.Name}}/{{locality.LocalityId}}" class="u-text-shadow">{{locality.Name}}</a>
