@@ -9,17 +9,15 @@
 
 			<form ng-submit="filterProperties()">
 
-				<label for="suburb">Suburb</label>
-				<input type="text" name="suburb" ng-model="suburb"><br />
+				<label for="suburb" class="property-filter">Suburb</label>
+				<input type="text" name="suburb" ng-model="suburb" class="property-filter-input">
 
-				<label for="min-price">Min price per week $</label>
-				<input type="number" name="min-price" ng-model="minPrice" min="0"><br />
+				<label for="price" class="property-filter">Price per week</label>
 
-				<label for="max-price">Max price per week $</label>
-				<input type="number" name="max-price" ng-model="maxPrice"><br />
+				<input id="price" ion-range-slider ion-range-slider-min="{{minPrice}}" ion-range-slider-max="{{maxPrice}}" />
 
-				<label for="bedrooms">Min bedrooms</label>
-				<input type="number" name="bedrooms" ng-model="bedrooms"><br />
+				<label for="bedrooms" class="property-filter">Min bedrooms</label>
+				<input type="number" name="bedrooms" ng-model="bedrooms" class="property-filter-input"><br />
 
 			</form>
 

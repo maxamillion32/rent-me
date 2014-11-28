@@ -23,6 +23,10 @@ angular.module('rentMeApp.propertiesView', ['ngRoute', 'tradeMeServices'])
 		setPriceRange(result.List);
 	})
 
+/*        setTimeout(function() {
+			$("#range_01").ionRangeSlider();
+		}, 5000);*/
+        
 	function setPriceRange(propertyList) {
 
 		//hack: force a high min price so that Math.min works, otherwise min will always be zero
@@ -55,5 +59,27 @@ angular.module('rentMeApp.propertiesView', ['ngRoute', 'tradeMeServices'])
 		}
 		return filtered;
 	};
+})
+
+.directive('ionRangeSlider', function() {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            $(element).ionRangeSlider({
+            	type: "double",
+            	grid: false,
+            	min: attrs.ionRangeSliderMin - 20,
+            	max: Number(attrs.ionRangeSliderMax) + 20,
+            	from: attrs.ionRangeSliderMin,
+            	to: attrs.ionRangeSliderMax,
+            	prefix: "$",
+            	onChange: function(data) {
+            		scope.maxPrice = data.to;
+            		scope.minPrice = data.from;
+            		scope.$apply();
+            	}
+            });
+        }
+    };
 });
 
