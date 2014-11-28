@@ -100,7 +100,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .navbar-header, label {
 
 .theme-light {
     background: rgb(203, 209, 213);
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
 }
 
 .theme-light * {
